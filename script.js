@@ -6,7 +6,8 @@ class Person {
   }
 
   greet() {
-    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+    // ✅ Cypress expects "and" instead of a comma
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
   }
 }
 
@@ -18,13 +19,15 @@ class Employee extends Person {
   }
 
   jobGreet() {
+    // ✅ Keep comma format for job title, as test expects it this way
     console.log(
       `Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`
     );
   }
 }
 
-// Export classes for Cypress testing
+// ✅ Make them accessible to Cypress
 window.Person = Person;
 window.Employee = Employee;
+
 
